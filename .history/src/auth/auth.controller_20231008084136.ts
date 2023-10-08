@@ -5,9 +5,9 @@ import {
   Body,
   ParseIntPipe,
 } from '@nestjs/common';
-// import { Request } from 'express';
+import { Request } from 'express';
 import { AuthService } from './auth.service';
-import { AuthDto, AuthRegDto } from './dto';
+import { AuthDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
@@ -22,16 +22,16 @@ export class AuthController {
   // )
 
   // signup(@Req() req: Request) {
-  signup(@Body() payload: AuthRegDto) {
+  signup(@Body() dto: AuthDto) {
     // console.log({
     //   email,
     //   password,
     // });
-    return this.authService.signup(payload);
+    return this.authService.signup(dto);
   }
 
   @Post('signin')
-  sigin(@Body() dto: AuthDto) {
-    return this.authService.login(dto);
+  sigin() {
+    return this.authService.login();
   }
 }

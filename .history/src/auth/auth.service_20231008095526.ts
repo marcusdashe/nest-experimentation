@@ -27,8 +27,7 @@ export class AuthService {
         data: {
           email: payload.email,
           hash,
-          firstName: payload.firstName,
-          lastName: payload.lastName,
+          firstName: payload,
         },
 
         // select: {
